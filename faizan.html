@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        .container {
+            border: 5px ridge whitesmoke;
+            
+            padding: 0%;
+            margin-left: 22%;
+            margin-right: 22%; 
+        }
+
+        h1 {
+            color: green;
+            margin-top: 2%;
+            text-align: center;
+        }
+
+        input {
+            padding-top: 1%;
+            padding-bottom: 1%;
+            margin-left: 20%;
+            padding-left: 10%;
+            padding-right: 10%;
+            font-size: medium;
+        }
+
+      #add-btn{
+            color: white;
+            padding-top: 1.3%;
+            padding-bottom: 1.3%;
+            padding-left: 4%;
+            padding-right: 4%;
+            margin: 0%;
+            background-color: color-mix(in srgb, skyblue 40%, blue 30%);
+        }
+
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        /* .fa-solid{
+           display: none;
+           margin-left: 45%;
+         padding-top: 10%;
+        } */
+        .fa-solid{
+            margin-left: 40%;
+            position: fixed;
+            margin-top: 0.5%;           
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>To-Do List</h1>
+        <!-- Input to add tasks -->
+        <input type="text" id="task-input" placeholder="Enter a task" />
+        <button id="add-btn">Add Task</button>
+  
+        <!-- List to display tasks -->
+    <ul id="task-list">
+         
+    </div>
+    </ul>
+
+    <script>
+        let inputs= document.getElementById("task-input");
+        let addBtn = document.getElementById("add-btn");
+        let taskList = document.getElementById("task-list");
+      
+       function start(){
+       if(inputs.value==""){
+        alert('please enter a task');
+       }
+       else{
+        let btn=document.createElement('button');
+        btn.style.backgroundColor='green';
+        btn.style.padding='0.5%';
+        btn.style.marginLeft='20%';
+        btn.style.color="white";
+        btn.textContent='Completed';
+        btn.addEventListener("click",textss);
+
+        let newli=document.createElement('li');
+        newli.innerHTML=`${inputs.value}<i class="fa-solid fa-trash"></i`;
+  
+       
+
+
+   
+        newli.appendChild(btn);
+        taskList.appendChild(newli);
+        newli.querySelector('i').addEventListener("click",remove);
+        function textss(){
+          newli.style.textDecoration='line-through';
+          btn.style.backgroundColor="red";
+      }
+        function remove (event){
+        newli.remove();
+       
+      }
+   
+      
+      inputs.value="";
+       }
+       }
+       
+      
+     addBtn.addEventListener("click",start);
+
+
+    </script>
+</body>
+
+</html>
+
+</script>
+</body>
+
+</html>
